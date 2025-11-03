@@ -14,7 +14,7 @@ class AddColumnsToEquiposTable extends Migration
     public function up()
     {
         // Para agregar varias columnas con chequeos, mejor hacerlo columna por columna
-        if (!Schema::hasColumn('equipos', 'tipo')) {
+     /*   if (!Schema::hasColumn('equipos', 'tipo')) {
             Schema::table('equipos', function (Blueprint $table) {
                 $table->string('tipo', 50);
             });
@@ -67,7 +67,7 @@ class AddColumnsToEquiposTable extends Migration
                 $table->unsignedBigInteger('id_empleado')->nullable();
 
                 // Agregar la clave foránea
-                $table->foreign('id_empleado')->references('id')->on('empleados')->onDelete('set null');
+                $table->foreign('id_empleado')->references('id_empleado')->on('empleados')->onDelete('set null');
             });
         }
 
@@ -87,7 +87,7 @@ class AddColumnsToEquiposTable extends Migration
             Schema::table('equipos', function (Blueprint $table) {
                 $table->string('tecnologia_memoria', 100)->nullable();
             });
-        }
+		}*/
     }
 
     /**
@@ -97,7 +97,7 @@ class AddColumnsToEquiposTable extends Migration
      */
     public function down()
     {
-        Schema::table('equipos', function (Blueprint $table) {
+       /* Schema::table('equipos', function (Blueprint $table) {
             // Primero eliminar la clave foránea si existe
             $sm = Schema::getConnection()->getDoctrineSchemaManager();
             $doctrineTable = $sm->listTableDetails('equipos');
@@ -126,6 +126,6 @@ class AddColumnsToEquiposTable extends Migration
                     $table->dropColumn($column);
                 }
             }
-        });
-    }
+	   });*/
+	}
 }

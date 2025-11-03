@@ -8,6 +8,7 @@ use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\ImpresoraController;
 use App\Http\Controllers\DispositivoRedController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ExportController;
 
 
 /*
@@ -69,8 +70,8 @@ Route::middleware(['auth'])->group(function () {
         'impresoras' => ImpresoraController::class,
         'dispositivos_red' => DispositivoRedController::class,
     ]);
+	Route::get('/exportar-inventario', [ExportController::class, 'export'])->name('exportar.inventario');
 
-    Route::get('/', [HomeController::class, 'index'])->name('home');
 });
 
 // Rutas de autenticación generadas por Breeze / Jetstream / Fortify
